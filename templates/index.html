@@ -1,0 +1,312 @@
+{% extends "_base.html" %} {% block content %}
+<h1 class="text-3xl text-violet-600">SPK Creator</h1>
+<h2 class="text-lg">Upgrade Bandwidth</h2>
+<form action="{% url 'createspk' %}" method="post">
+  {% csrf_token %}
+  <div class="space-y-6">
+    <div class="border-b border-gray-900/10 pb-12">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label
+            for="month"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Bulan</label
+          >
+          <div class="mt-2">
+            <select
+              id="month"
+              name="var_month"
+              autocomplete="month-name"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            >
+              <option>Januari</option>
+              <option>Februari</option>
+              <option>Maret</option>
+              <option>April</option>
+              <option>Mei</option>
+              <option>Juni</option>
+              <option>Juli</option>
+              <option>Agustus</option>
+              <option>September</option>
+              <option>Oktober</option>
+              <option>November</option>
+              <option>Desember</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="year"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Tahun</label
+          >
+          <div class="mt-2">
+            <input
+              type="text"
+              name="var_year"
+              id="year"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label
+            for="loc"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Kota</label
+          >
+          <div class="mt-2">
+            <input
+              id="loc"
+              name="var_loc"
+              type="text"
+              autocomplete="location"
+              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="to"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Kepada</label
+          >
+          <div class="mt-2">
+            <input
+              id="to"
+              name="var_to"
+              type="text"
+              autocomplete="to"
+              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="cc"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >CC</label
+          >
+          <div class="mt-2">
+            <input
+              type="cc"
+              name="var_cc"
+              id="cc"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-5">
+          <label
+            for="type"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Tipe Kantor</label
+          >
+          <div class="mt-2">
+            <select
+              id="type"
+              name="var_type"
+              autocomplete="type"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >
+              <option>KCU</option>
+              <option>KCP</option>
+              <option>KK</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="initial"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Kode Cabang</label
+          >
+          <div class="mt-2">
+            <select
+              id="initial"
+              name="var_initial"
+              autocomplete="initial"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >
+              <option>PND</option>
+              <option>KCP</option>
+              <option>KK</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="branch"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Nama Cabang</label
+          >
+          <div class="mt-2">
+            <input
+              type="branch"
+              name="var_branch"
+              id="branch"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="router"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Router</label
+          >
+          <div class="mt-2">
+            <select
+              id="router"
+              name="var_router"
+              autocomplete="router"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >
+              <option>Cisco</option>
+              <option>Iforte</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="service"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Service</label
+          >
+          <div class="mt-2">
+            <select
+              id="service"
+              name="var_service"
+              autocomplete="service"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >
+              <option>Metro-E</option>
+              <option>MPLS</option>
+              <option>M2M</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="before"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Before</label
+          >
+          <div class="mt-2">
+            <input
+              id="before"
+              name="var_before"
+              type="text"
+              autocomplete="before"
+              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="after"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >After</label
+          >
+          <div class="mt-2">
+            <input
+              type="after"
+              name="var_after"
+              id="after"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="col-span-full">
+          <label
+            for="address"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Alamat</label
+          >
+          <div class="mt-2">
+            <input
+              type="text"
+              name="var_address"
+              id="address"
+              autocomplete="address"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="pic"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >PIC</label
+          >
+          <div class="mt-2">
+            <input
+              type="pic"
+              name="var_pic"
+              id="pic"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label
+            for="phone"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Telepon PIC</label
+          >
+          <div class="mt-2">
+            <input
+              type="phone"
+              name="var_phone"
+              id="phone"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="by"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >by:</label
+          >
+          <div class="mt-2">
+            <input
+              type="by"
+              name="var_by"
+              id="by"
+              class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 flex items-center justify-end gap-x-6">
+    <button type="button" class="text-sm font-semibold leading-6 text-gray-900">
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+      Save
+    </button>
+  </div>
+</form>
+{% endblock content %}
